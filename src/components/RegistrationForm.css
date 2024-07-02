@@ -1,0 +1,23 @@
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group .bi {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #6c757d;
+}
+
+.form-control {
+    padding-right: 2.5rem;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}

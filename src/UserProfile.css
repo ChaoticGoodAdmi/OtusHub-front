@@ -1,0 +1,17 @@
+p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+p .bi {
+    margin-right: 8px;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
