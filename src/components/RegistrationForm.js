@@ -5,6 +5,10 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './RegistrationForm.css';
 
+const api = axios.create({
+    baseURL: process.env.REACT_APP_API_BASE_URL,
+});
+
 const RegistrationForm = () => {
     const [firstName, setFirstName] = useState('');
     const [secondName, setSecondName] = useState('');
@@ -49,7 +53,7 @@ const RegistrationForm = () => {
         if (!validateForm()) return;
 
         try {
-            const response = await axios.post('/user/register', {
+            const response = await api.post('/user/register', {
                 firstName,
                 secondName,
                 birthDate,

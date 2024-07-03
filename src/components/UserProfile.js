@@ -3,18 +3,21 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './UserProfile.css'; // Custom CSS file for additional styles and animations
+import './UserProfile.css';
+
+const api = axios.create({
+    baseURL: process.env.REACT_APP_API_BASE_URL,
+});
 
 const UserProfile = ({ token }) => {
     const { id } = useParams();
     const [profile, setProfile] = useState(null);
     const [searchId, setSearchId] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
 
     const fetchUserProfile = async (userId) => {
         try {
-            const response = await axios.get(`/user/get/${userId}`, {
+            const response = await api.get(`/user/get/${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
