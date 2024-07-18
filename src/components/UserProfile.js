@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './UserProfile.css'; // Custom CSS file for additional styles and animations
+import './UserProfile.css';
 
 const UserProfile = ({ token }) => {
     const { id } = useParams();
@@ -59,6 +59,7 @@ const UserProfile = ({ token }) => {
                         </Form.Group>
                         <Button variant="primary" type="submit" className="w-100">Поиск</Button>
                     </Form>
+                    <Link to="/search" className="btn btn-secondary w-100 mt-3">Поиск по имени</Link>
                     {errorMessage && <Alert variant="danger" className="mt-3">{errorMessage}</Alert>}
                     {profile && (
                         <div className="mt-3">
