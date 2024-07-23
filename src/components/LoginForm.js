@@ -5,6 +5,10 @@ import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './LoginForm.css';
 
+const api = axios.create({
+    baseURL: process.env.REACT_APP_API_BASE_URL,
+});
+
 const LoginForm = ({ onLogin }) => {
     const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('/login', {
+            const response = await api.post('/login', {
                 userId,
                 password
             });
